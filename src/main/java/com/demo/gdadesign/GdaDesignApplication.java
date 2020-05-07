@@ -1,7 +1,6 @@
 package com.demo.gdadesign;
 
 import com.demo.gdadesign.gda.repository.GdaRepository;
-import com.demo.gdadesign.gda.repository.TestRepository;
 import com.demo.gdadesign.gda.repository.UserRepository;
 import com.demo.gdadesign.gda.shard.SharedData;
 import org.springframework.boot.CommandLineRunner;
@@ -15,8 +14,6 @@ import java.util.concurrent.Executors;
 @EnableJpaAuditing
 @SpringBootApplication
 public class GdaDesignApplication implements CommandLineRunner {
-    @Resource
-    private TestRepository testRepository;
     @Resource
     private UserRepository userRepository;
     @Resource
@@ -47,7 +44,6 @@ public class GdaDesignApplication implements CommandLineRunner {
 
     //初始化数据库
     private void initDataSource() {
-        SharedData.getSharedData().setTestRepository(this.testRepository);
         SharedData.getSharedData().setUserRepository(this.userRepository);
         SharedData.getSharedData().setGdaRepository(this.gdaRepository);
     }

@@ -1,7 +1,12 @@
 package com.demo.gdadesign.gda.repository;
 
-import com.demo.gdadesign.gda.entity.GdaEntity;
+import com.demo.gdadesign.gda.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<GdaEntity,String> {
+import java.util.List;
+
+public interface UserRepository extends JpaRepository<UserEntity, String> {
+    List<UserEntity> findByUsername(String username);
+
+    UserEntity findByUsernameAndPassword(String username,String password);
 }

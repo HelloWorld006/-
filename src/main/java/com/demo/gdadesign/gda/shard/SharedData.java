@@ -1,13 +1,11 @@
 package com.demo.gdadesign.gda.shard;
 
 import com.demo.gdadesign.gda.repository.GdaRepository;
-import com.demo.gdadesign.gda.repository.TestRepository;
 import com.demo.gdadesign.gda.repository.UserRepository;
 
 public class SharedData {
     private static SharedData sharedData = new SharedData();
 
-    private TestRepository testRepository;
     private UserRepository userRepository;
     private GdaRepository gdaRepository;
 
@@ -17,14 +15,6 @@ public class SharedData {
 
     public static void setSharedData(SharedData sharedData) {
         SharedData.sharedData = sharedData;
-    }
-
-    public TestRepository getTestRepository() {
-        return testRepository;
-    }
-
-    public void setTestRepository(TestRepository testRepository) {
-        this.testRepository = testRepository;
     }
 
     public UserRepository getUserRepository() {

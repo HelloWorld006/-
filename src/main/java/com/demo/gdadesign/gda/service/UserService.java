@@ -1,5 +1,8 @@
 package com.demo.gdadesign.gda.service;
 
-public interface UserService{
-    public void run();
+import com.demo.gdadesign.gda.entity.UserEntity;
+
+public interface UserService {
+    String userLogin(String username, String password);
+
 }
