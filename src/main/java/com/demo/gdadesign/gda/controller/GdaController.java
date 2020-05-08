@@ -14,6 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/gda")
+@CrossOrigin
 public class GdaController {
     @Autowired
     private GdaService gdaService;
