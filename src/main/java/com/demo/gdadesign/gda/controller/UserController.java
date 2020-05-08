@@ -15,7 +15,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/login")
+    @GetMapping("login")
     public JSONObject login(String username, String password) {
         String msg = userService.userLogin(username, password);
         if ("success".equals(msg)) {
