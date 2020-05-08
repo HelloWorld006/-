@@ -29,4 +29,51 @@ public class GdaDao {
             return gdaRepository.findAllByTitleLike("%" + title + "%");
         }
     }
+
+    /**
+     * 添加或者编辑
+     * @param entity
+     * @return
+     */
+    public boolean saveOrUpdate(GdaEntity entity) {
+        GdaRepository gdaRepository = SharedData.getSharedData().getGdaRepository();
+        if (StringUtils.isEmpty(entity)) {
+            //如果是初始化遍历 则全部查找
+            gdaRepository.saveAndFlush(entity);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 删除功能
+     * @param id
+     * @return
+     */
+    public boolean delete(String id) {
+        try {
+            GdaRepository gdaRepository = SharedData.getSharedData().getGdaRepository();
+            gdaRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 查询功能
+     * @param id
+     * @return
+     */
+    public GdaEntity goUpdate(String id) {
+        try {
+            GdaRepository gdaRepository = SharedData.getSharedData().getGdaRepository();
+            GdaEntity gdaEntity = gdaRepository.findById(id).get();
+            return gdaEntity;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
 }

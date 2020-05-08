@@ -10,4 +10,6 @@ public interface GdaService {
     String doAddOrUpdate(GdaEntity entity);
 
     String doDelete(String id);
+
+    GdaEntity goUpdate(String id);
 }
