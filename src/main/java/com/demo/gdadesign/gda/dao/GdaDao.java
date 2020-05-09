@@ -26,11 +26,11 @@ public class GdaDao {
         if (StringUtils.isEmpty(title)) {
             //如果是初始化遍历 则全部查找
 //            List<GdaEntity> all = gdaRepository.findAll();
-            List<GdaEntity> by = gdaRepository.findBy(PageRequest.of(page, size));
+            List<GdaEntity> by = gdaRepository.findBy(PageRequest.of(page-1, size));
             return by;
         } else {
             //搜索查找
-            return gdaRepository.findAllByTitleLike("%" + title + "%");
+            return gdaRepository.findAllByTitleLike("%" +title + "%");
         }
     }
 
