@@ -20,8 +20,8 @@ public class GdaServiceImpl implements GdaService {
      * @return
      */
     @Override
-    public List<GdaEntity> list(String title) {
-        List<GdaEntity> list = gdaDao.list(title);
+    public List<GdaEntity> list(String title, Integer page, Integer size) {
+        List<GdaEntity> list = gdaDao.list(title,page,size);
         return list;
     }
 

@@ -25,8 +25,8 @@ public class GdaController {
      * @return
      */
     @GetMapping("/list")
-    public JSONObject login(String title) {
-        List<GdaEntity> list = gdaService.list(title);
+    public JSONObject login(@RequestParam("page") Integer page, @RequestParam("limit") Integer size,String title) {
+        List<GdaEntity> list = gdaService.list(title,page,size);
         if (list.size() == 0 || list == null) {
             return PubUtils.getReturnData("无数据", 500, null);
         } else {

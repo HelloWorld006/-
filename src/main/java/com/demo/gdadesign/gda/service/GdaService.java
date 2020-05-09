@@ -5,7 +5,7 @@ import com.demo.gdadesign.gda.entity.GdaEntity;
 import java.util.List;
 
 public interface GdaService {
-    List<GdaEntity> list(String title);
+    List<GdaEntity> list(String title,Integer page,Integer size);
 
     String doAddOrUpdate(GdaEntity entity);
 
