@@ -1,5 +1,6 @@
 package com.demo.gdadesign.gda.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.demo.gdadesign.gda.dao.GdaDao;
 import com.demo.gdadesign.gda.entity.GdaEntity;
 import com.demo.gdadesign.gda.service.GdaService;
@@ -60,5 +61,17 @@ public class GdaServiceImpl implements GdaService {
     @Override
     public GdaEntity goUpdate(String id) {
         return gdaDao.goUpdate(id);
+    }
+
+    @Override
+    public JSONObject layuiList(String title, Integer page, Integer size) {
+        List<GdaEntity> list = gdaDao.list(title,page,size);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("date", PubUtils.getNowDate());
+        jsonObject.put("code", 200);
+        jsonObject.put("msg", "success");
+        jsonObject.put("data", list);
+        jsonObject.put("count", gdaDao.count());
+        return jsonObject;
     }
 }

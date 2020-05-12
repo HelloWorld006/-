@@ -38,6 +38,17 @@ public class GdaController {
     }
 
     /**
+     * 遍历
+     * @param title
+     * @return
+     */
+    @GetMapping("/layuiList")
+    public JSONObject layuiList(@RequestParam("page") Integer page, @RequestParam("limit") Integer size,String title) {
+        return gdaService.layuiList(title, page, size);
+
+    }
+
+    /**
      * 新增或者编辑
      * @param jsonObject
      * @return

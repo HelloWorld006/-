@@ -3,17 +3,29 @@ package com.demo.gdadesign.gda.dao;
 import com.demo.gdadesign.gda.entity.GdaEntity;
 import com.demo.gdadesign.gda.repository.GdaRepository;
 import com.demo.gdadesign.gda.shard.SharedData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class GdaDao {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    public Integer count() {
+        String sql = "select count(1) c from gda ";
+        List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
+        return Integer.parseInt(String.valueOf(list.get(0).get("c")));
+    }
 
     /**
      * gda项目遍历
